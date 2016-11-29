@@ -1,0 +1,20 @@
+b {
+    color: #df691a;
+    font-size: 25px;
+}
+h1 {
+    text-align: center;
+    color: #df691a;
+}
+.main-block {
+    margin-top: 50px;
+}
+.result {
+    background: #ffffff;
+    height: 153px;
+    color: #000000;
+    padding: 15px;
+}
+.btn-success, .btn-danger {
+    margin-top: 110px;
+}

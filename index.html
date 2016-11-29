@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>bubble sort</title>
+
+    <!-- Bootstrap -->
+    <!-- Optional theme -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Online<b>Sort</b></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            Demo <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="bubble.html">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<div id="app">
+    <div class="container">
+        <div class="row">
+            <h1>Online Sort</h1>
+
+            <div class="form-group select">
+                <div class="col-xs-offset-3 col-xs-6">
+                    <select v-model="selectedSort" class="form-control">
+                        <option v-for="option in options" v-bind:value="option.value">
+                            {{ option.text }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container main-block">
+        <div class="row">
+            <div class="col-xs-5">
+                <h3>Введите массив</h3>
+
+                <div class = "form-group">
+                    <span>{{array}}</span>
+                <textarea name="array" v-model="inputText"
+                          id="" cols="51" rows="7" class="form-control">
+
+                </textarea>
+                    <div class="alert alert-dismissible alert-danger" v-show="valid">
+                      <!--  <button type="button" class="close" @click="alertClose" data-dismiss="alert">&times;</button>-->
+                        <strong>Ошибка!</strong> Использовать только числа и " , "
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-2">
+                <button v-if="!valid" class="btn btn-success" @click="sort(selectedSort)">
+                    Отсортировать
+                </button>
+                <button v-else class="btn btn-danger" disabled @click="sort(selectedSort)">
+                    Ошибка
+                </button>
+            </div>
+            <div class="col-xs-5 ">
+                <h3>Результат</h3>
+
+                <div class="result">
+                    {{sortArray}}
+                </div>
+                <div class="statist">
+                    Количество итераций цикла : <span>{{count}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.min.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>
