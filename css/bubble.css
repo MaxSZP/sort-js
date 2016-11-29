@@ -2,6 +2,17 @@
     font-family: Playball; /* ָלÿ רנטפעא */
     src: url(../fonts/playball.ttf); /* ֿףעü ך פאיכף סמ רנטפעמל */
 }
+
+.navbar {
+    margin-bottom: 0;
+}
+b {
+    color: #df691a;
+    font-size: 25px;
+}
+span {
+    color: #000;
+}
 body{
     height: 100%;
     margin: 0;
