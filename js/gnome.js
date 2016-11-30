@@ -56,9 +56,9 @@ var vm = new Vue({
                 vm.items[i].active = true;
                 vm.items[i - 1].active = true;
                 if (vm.items[i - 1].id < vm.items[i].id) {
-                    /*i = j;
-                    j++;*/
-                    i++;
+                    i = j;
+                    j++;
+                   // i++;
                 }
                 else {
                     var tmp = vm.items[i - 1];
@@ -67,9 +67,9 @@ var vm = new Vue({
                     vm.add(i, tmp);
                     i--;
                     if (i == 0) {
-                        /*i = j;
-                        j++;*/
-                        i++;
+                        i = j;
+                        j++;
+                      //  i++;
                     }
                 }
 

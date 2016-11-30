@@ -59,6 +59,8 @@ new Vue({
 
         bubbleSort: function (array) {
             var n = 0;
+            console.log('bubble');
+
             for (var i = 0, len = array.length - 1; i < len; i++) {
                 var swapped = false;
                 var j = 0;

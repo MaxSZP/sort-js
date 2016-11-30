@@ -43,7 +43,7 @@
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="bubble.html">Сортировка пузырьком</a></li>
                             <li class="active"><a href="gnome.html">Гномья сортировка</a></li>
-                            <li><a href="#">Something else here</a></li>
+                            <li><a href="selection.html">Сортировка выбором</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -69,7 +69,6 @@
                     <div v-for="item in items" v-bind:key="item.id" class="list-complete-item"
                          v-bind:class="{ active: item.active }">
                         <img src="img/santa.png" alt="" v-bind:style="{ height: item.height }">
-                        <span>{{item.id}}</span>
                     </div>
                 </transition-group>
             </div>

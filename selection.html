@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>bubble sort</title>
+    <title>selected sort</title>
 
     <!-- Bootstrap -->
     <!-- Optional theme -->
@@ -41,9 +41,9 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             Демо <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li class="active"><a href="bubble.html">Сортировка пузырьком</a></li>
+                            <li><a href="bubble.html">Сортировка пузырьком</a></li>
                             <li><a href="gnome.html">Гномья сортировка</a></li>
-                            <li><a href="selection.html">Сортировка выбором</a></li>
+                            <li class="active"><a href="selection.html">Сортировка выбором</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -52,7 +52,7 @@
     </nav>
 </header>
 <div class="container-fluid content" id="app">
-    <h1>Сортировка пузырьком</h1>
+    <h1>Сортировка выбором</h1>
     <div class="row">
         <div class="col-xs-12">
             <div class="one-block">
@@ -67,8 +67,9 @@
                 </div>
                 <transition-group name="list-complete" tag="p">
                     <div v-for="item in items" v-bind:key="item.id" class="list-complete-item"
-                         v-bind:class="{ active: item.active, completed: item.sort }">
-                        <img src="img/snegovik.png" alt="" v-bind:style="{ height: item.height }">
+                         v-bind:class="{ active: item.active, min: item.min, completed: item.sort }">
+                        <img src="img/sosna2.png" alt="" v-bind:style="{ height: item.height }">
+                       <!-- <span> {{ item.id }}</span>-->
                     </div>
                 </transition-group>
             </div>
@@ -93,6 +94,6 @@
         crossorigin="anonymous"></script>
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.min.js"></script>
-<script src="js/bubble.js"></script>
+<script src="js/selection.js"></script>
 </body>
 </html>

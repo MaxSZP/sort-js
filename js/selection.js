@@ -2,7 +2,7 @@ var vm = new Vue({
     el: '#app',
     data: {
         items: [],
-        step: 15,
+        step: 35,
         animationSpeed: 2000,
         maxAnimationSpeed: 5000,
         tmp: {},
@@ -25,6 +25,7 @@ var vm = new Vue({
                     id: i,
                     height: 50 + this.step + 'px',
                     active: false,
+                    min: false,
                     sort: false
                 });
                 this.step = this.step + 15;
@@ -42,42 +43,46 @@ var vm = new Vue({
         shuffle: function () {
             vm.items.forEach(function (item, i, arr) {
                 arr[i].active = false;
-                arr[i].sort = false;
             });
             this.items = _.shuffle(this.items)
         },
         animationSort: function () {
-            var j = 1;
-            var timer = setTimeout(function g() {
-                var i = 1;
 
+            var len = vm.items.length;
+            var i = 0;
+
+            var timer = setTimeout(function g() {
+                var min = i;
+                vm.items[min].min = true;
+                var j = i;
                 var timerId = setTimeout(function go() {
                     vm.items.forEach(function (item, i, arr) {
                         arr[i].active = false;
                     });
-                    console.log(i);
-                    vm.items[i].active = true;
-                    vm.items[i - 1].active = true;
-                    if (vm.items[i].id < vm.items[i - 1].id) {
-
-                        var tmp = vm.items[i - 1];
-                        vm.remove(i - 1);
-                        vm.add(i, tmp);
-                    }
-
-                    if(j == vm.items.length) {
+                    vm.items[j].active = true;
+                    console.log(j);
+                    if (vm.items[j].id < vm.items[min].id) {
+                        min = j;
                         vm.items.forEach(function (item, i, arr) {
-                            arr[i].sort = true;
+                            arr[i].min = false;
                         });
+                        vm.items[min].min = true;
+                        console.log('<<<<< '+ min);
                     }
-                    if (i < vm.items.length - (j-1)) setTimeout(go, vm.animationSpeed);
-                    i++;
+                    if ( j == len - 1) {
+                        vm.items[min].sort = true;
+                        var tmp = vm.items[min];
+                        vm.remove(min);
+                        vm.add(i - 1, tmp);
+                    }
+                    if (j < len - 1 /*- (j-1)*/) setTimeout(go, vm.animationSpeed);
+                    j++;
                 }, 100);
-                if (j < vm.items.length - 1) setTimeout(g, vm.animationSpeed * vm.items.length);
-                j++;
+
+                if (i < len - 1) setTimeout(g, vm.animationSpeed * vm.items.length);
+                i++;
             }, 100);
 
-
-        }
+        },
     }
 });

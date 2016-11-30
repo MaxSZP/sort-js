@@ -92,3 +92,11 @@ h1 {
 .block-setting span {
     font-size: 28px;
 }
+
+.min {
+    border-bottom: 2px solid #FF2400;
+}
+
+.completed {
+    border-bottom: 3px solid #60E211;
+}
