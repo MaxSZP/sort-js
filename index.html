@@ -42,7 +42,7 @@
                             Демо <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="bubble.html">Сортировка пузырьком</a></li>
-                            <li><a href="#">Another action</a></li>
+                            <li><a href="gnome.html">Гномья сортировка</a></li>
                             <li><a href="#">Something else here</a></li>
                         </ul>
                     </li>
@@ -69,22 +69,22 @@
     </div>
     <div class="container main-block">
         <div class="row">
-            <div class="col-xs-5">
+            <div class="col-xs-5 sort-input">
                 <h3>Введите массив</h3>
 
                 <div class = "form-group">
-                    <span>{{array}}</span>
                 <textarea name="array" v-model="inputText"
                           id="" cols="51" rows="7" class="form-control">
 
                 </textarea>
+                <span>{{array}}</span>
                     <div class="alert alert-dismissible alert-danger" v-show="valid">
                       <!--  <button type="button" class="close" @click="alertClose" data-dismiss="alert">&times;</button>-->
                         <strong>Ошибка!</strong> Использовать только числа и " , "
                     </div>
                 </div>
             </div>
-            <div class="col-xs-2">
+            <div class="col-xs-2 sort-button">
                 <button v-if="!valid" class="btn btn-success" @click="sort(selectedSort)">
                     Отсортировать
                 </button>
@@ -92,7 +92,7 @@
                     Ошибка
                 </button>
             </div>
-            <div class="col-xs-5 ">
+            <div class="col-xs-5 sort-output">
                 <h3>Результат</h3>
 
                 <div class="result">
